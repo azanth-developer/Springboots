@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Azanth S</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<style>
+	table tr td, table tr th{
+	  background-color: rgba(210,130,240, 0.01) !important;
+	}
+</style>
+<body style="background: linear-gradient(270deg,rgba(138, 17, 99, 1) 34%, rgba(245, 5, 53, 1) 100%);">
+<h1 style="text-align:center;font-family: 'Arial Black',sans-serif;padding:25px;"> Student List</h1>
+<div style="background: linear-gradient(270deg,rgba(138, 17, 99, 1) 34%, rgba(245, 5, 53, 1) 100%);";>
+	<table class="table table-borderless table-hover">
+	    <thead>
+	        <tr>
+	            <th>Student ID</th>
+	            <th>Student Name</th>
+	            <th>Student Email</th>
+	            <th>Student Place</th>
+	            <th>Student Age</th>
+	            <th>Action</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="student : ${students}" th:object="${student}">
+	            <td th:text="*{studentId}"></td>
+	            <td th:text="*{studentName}"></td>
+	            <td th:text="*{studentEmail}"></td>
+	            <td th:text="*{studentPlace}"></td>
+	            <td th:text="*{studentAge}"></td>
+	            <td>
+	                <a th:href="@{/editStudent/{id}(id=*{studentId})}"><button type="button" class="btn btn-success">Edit</button></a>
+	                <a th:href="@{/deleteStudent/{id}(id=*{studentId})}"><button type="button" class="btn btn-danger">Delete</button></a>
+	            </td>
+	        </tr>
+	    </tbody>
+	</table>
+</div>
+<div style="text-align:center;">
+  <a th:href="@{/addStudent}"><button style="width:600px;color:black;" class="btn btn-primary" type="button">Add new Student</button></a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
+
+

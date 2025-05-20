@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/editStudent}" th:object="${student}" method="post" >
+        <input type="hidden" th:field="*{studentId}"/>
+        <h1>FORM</h1>
+        <label>Student Name:</label>
+        <input type="text" th:field="*{studentName}"/>
+        <span th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}"></span><br/>
+        <label> Student Email:</label>
+        <input type="email" th:field="*{studentEmail}"/>
+        <span th:if="${#fields.hasErrors('studentEmail')}" th:errors="*{studentEmail}"></span><br/>
+        <label>Student Place</label>
+        <input type="text" th:field="*{studentPlace}"/>
+        <span th:if="${#fields.hasErrors('studentPlace')}" th:errors="*{studentPlace}"></span><br/>
+        <label>Student Age:</label>
+        <input type="number" th:field="*{studentAge}"/>
+        <span th:if="${#fields.hasErrors('studentAge')}" th:errors="*{studentAge}"></span><br/>
+        <button type="submit">Edit new student</button>
+    </form>
+</div>
+</body>
+</html>
+
+
